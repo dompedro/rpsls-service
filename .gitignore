@@ -1,0 +1,15 @@
+/target/
+*example*
+/cmd/rpsls/debug
+.vscode/*
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Wire
+wire_gen.go
