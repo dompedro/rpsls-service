@@ -55,20 +55,20 @@ initial choices, the script for creating them is located at db/migrations/000001
 Future versions of this project will include an endpoint to add more choices and relationships between them and the 
 existing ones. Until then, it is possible to add more choices directly to the database. Here's a sample cypher query:
 
-// all existing choices must be matched and related to the new one
-MATCH (rock:Choice) WHERE rock.name = "Rock"
-MATCH (paper:Choice) WHERE paper.name = "Paper"
-MATCH (scissors:Choice) WHERE scissors.name = "Scissors"
-MATCH (lizard:Choice) WHERE lizard.name = "Lizard"
-MATCH (spock:Choice) WHERE spock.name = "Spock"
-// this part creates the new choice
-CREATE (k:Choice { name: "Kitten" }),
-// and here we associate it with the existing ones
-(k)-[:BEATS {with: "scratches"}]->(paper),
-(k)-[:BEATS {with: "eats"}]->(lizard),
-(k)-[:BEATS {with: "mesmerizes"}]->(spock),
-(rock)-[:BEATS {with: "crushes"}]->(k),
-(scissors)-[:BEATS {with: "cuts"}]->(k);
+// all existing choices must be matched and related to the new one  
+MATCH (rock:Choice) WHERE rock.name = "Rock"  
+MATCH (paper:Choice) WHERE paper.name = "Paper"  
+MATCH (scissors:Choice) WHERE scissors.name = "Scissors"  
+MATCH (lizard:Choice) WHERE lizard.name = "Lizard"  
+MATCH (spock:Choice) WHERE spock.name = "Spock"  
+// this part creates the new choice  
+CREATE (k:Choice { name: "Kitten" }),  
+// and here we associate it with the existing ones  
+(k)-[:BEATS {with: "scratches"}]->(paper),  
+(k)-[:BEATS {with: "eats"}]->(lizard),  
+(k)-[:BEATS {with: "mesmerizes"}]->(spock),  
+(rock)-[:BEATS {with: "crushes"}]->(k),  
+(scissors)-[:BEATS {with: "cuts"}]->(k);  
 
 ## Scoreboard
 
