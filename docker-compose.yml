@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  neo4j:
+    image: "neo4j:4.2"
+    volumes:
+      - ./neo4j:/var/lib/neo4j/import
+    environment:
+      - DB_HOST=localhost
+      - DB_PORT=7687
+      - DB_USER=neo4j
+      - DB_PASSWORD=supersecret
+      - NEO4J_dbms_default__database=rpsls
+      - NEO4J_AUTH=neo4j/supersecret
+    ports:
+      - 7474:7474
+      - 7687:7687
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - /data/redis:/data
